@@ -1,13 +1,15 @@
+import java.awt.BorderLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.sql.*;
+import javax.swing.JFrame;
 import net.sourceforge.tess4j.TesseractException;
 
 
 public class Reader {
-    public static String original="sample5.jpg";
+    public static String original="sample1.jpg";
     public static String image = "current.jpg";
     public static String path = "src\\";
     
@@ -25,6 +27,15 @@ public class Reader {
 		BlackPoints example = new BlackPoints();
 
 		BufferedImage image1 = readImage(image);
+                int width = image1.getWidth();
+		int height = image1.getHeight()+30;
+
+		JFrame frame = new JFrame("ReDraw");
+		// frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(example, BorderLayout.CENTER);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		frame.setSize(width, height);
 		}
 
                 public static void main(String[] args) throws TesseractException, ClassNotFoundException{
